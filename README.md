@@ -4,4 +4,4 @@ This little example project will focus on how to cipher or decipher data with AE
 
 Here is a little arduino console output picture to visualize project achievements:
 
-
+<p align="center"><img width="95%" src="demo.png"></p>
