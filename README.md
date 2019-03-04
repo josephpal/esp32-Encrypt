@@ -30,7 +30,7 @@ To use my created class, you only have to include the [Cipher.h](./esp32Encrypt/
 ```
 ## Using the internal storage for saving purposes
 
-If you want to save the encrypted string on the internal storage (e.g use case of a secure config file), you have to include the [SPIFFSTest.h](./esp32Encrypt/SPIFFSTest.h). Storing and loading the content form Spiffs is now very easly. You just have to call the function  
+If you want to save the encrypted string on the internal storage (e.g use case of a secure config file), you have to include the [SPIFFSTest.h](./esp32Encrypt/SPIFFSTest.h). Storing and loading the content form Spiffs is now very easly. You just have to call the method writeFile() to save a string in a file and the method getFile() to load the content of a file into an string which will be used to decrypt.
 
 ``` bash
   #include "SPIFFSTest.h"
