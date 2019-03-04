@@ -1,1 +1,2 @@
 esp32Encrypt/makeSPIFFS/* linguist-documentation=false
+esp32Encrypt/makeSPIFFS/linux/esptool.py linguist-detectable=false
