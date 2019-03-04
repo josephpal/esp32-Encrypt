@@ -18,7 +18,7 @@ To use my created class, you only have to include the "Cipher.h" file in your cu
     char * key = "abcdefghijklmnop";
     cipher->setKey(key);
 
-    String data = "Tech tutorials xTech tutorials xxyzgvszufsdgftzsdfgsdfzfsfdzfsdzfsdtzfdtzsfdtzsfdtzfsdtzfstzfzsfdfzs";
+    String data = "ESP32 AES128bit Encryption example";
     String cipherString = cipher->encryptString(data);
     String decipheredString = cipher->decryptString(cipherString);
   }
