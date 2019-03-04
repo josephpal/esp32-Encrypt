@@ -12,6 +12,7 @@ To use my created class, you only have to include the [Cipher.h](./esp32Encrypt/
 
 ``` bash
   #include "Cipher.h"
+  
   Cipher * cipher = new Cipher();
 
   void setup() {
@@ -21,6 +22,30 @@ To use my created class, you only have to include the [Cipher.h](./esp32Encrypt/
     String data = "ESP32 AES128bit Encryption example";
     String cipherString = cipher->encryptString(data);
     String decipheredString = cipher->decryptString(cipherString);
+  }
+
+  void loop() {
+
+  }
+```
+## Using the internal storage for saving purposes
+
+If you want to save the encrypted string on the internal storage (e.g use case of a secure config file), you have to include the [SPIFFSTest.h](./esp32Encrypt/SPIFFSTest.h). Storing and loading the content form Spiffs is now very easly. You just have to call the function  
+
+``` bash
+  #include "SPIFFSTest.h"
+  
+  ...
+  
+  CSPIFFS mSpiffs;
+
+  void setup() {
+    SPIFFS.begin(true);
+  
+    ...
+
+    mSpiffs.writeFile(SPIFFS, "/test.txt", cipher->encryptString(data) );
+    String decipheredString = cipher->decryptString(mSpiffs.getFile(SPIFFS, "/test.txt"));
   }
 
   void loop() {
