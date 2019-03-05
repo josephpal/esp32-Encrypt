@@ -1,2 +1,5 @@
-esp32Encrypt/makeSPIFFS/* linguist-documentation=false
-esp32Encrypt/makeSPIFFS/linux/esptool.py linguist-detectable=false
+examples/esp32Encrypt/makeSPIFFS/* linguist-documentation=false
+examples/esp32Encrypt/makeSPIFFS/linux/esptool.py linguist-detectable=false
+
+examples/esp32EncryptWlan/makeSPIFFS/* linguist-documentation=false
+examples/esp32EncryptWlan/makeSPIFFS/linux/esptool.py linguist-detectable=false
