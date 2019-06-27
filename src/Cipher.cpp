@@ -9,7 +9,10 @@
 
 Cipher::Cipher() {
   // default unsecure key, its highly recommended to use the overloaded constructor and the function setKey()
-  privateCipherKey = "abcdefghijklmnop";
+  // sometimes serval keys wont work 
+  // https://tls.mbed.org/kb/how-to/generate-an-aes-key
+  
+  setKey("abcdefghijklmnop");
 }
 
 Cipher::Cipher(char * key) {
@@ -21,7 +24,31 @@ Cipher::~Cipher() {
 }
 
 void Cipher::setKey(char * key) {
-  privateCipherKey = key;
+  // aes-128bit mode means that your cipher key can only be 16 characters long 
+  // futhermore, only chracters in the cipher key are allowed, not numbers!
+  // 16 characters + '\0'
+  
+  if( strlen(key) > 16 ) {
+    privateCipherKey = new char[17];
+    (String(key).substring(0,16)).toCharArray(privateCipherKey, 17);
+    
+    #ifdef CIPHER_DEBUG
+      Serial.println("[cipher] error: cipher key to long! Will be cutted to 16 characters.");
+      Serial.println("[cipher] => " + String(key));
+      Serial.println("[cipher] => " + String(privateCipherKey));
+    #endif  
+  } else if( strlen(key) < 16 ) {
+    privateCipherKey = "abcdefghijklmnop";
+    
+    #ifdef CIPHER_DEBUG
+      Serial.println("[cipher] error: cipher key to short! Standard cipher key will be used.");
+    #endif
+  } else {
+    #ifdef CIPHER_DEBUG
+      Serial.println("[cipher] cipher key length matched. Using this key.");
+    #endif
+    privateCipherKey = key;
+  }
 }
 
 char * Cipher::getKey() {

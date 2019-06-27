@@ -3,18 +3,20 @@
 #include "Cipher.h"
 
 CSPIFFS mSpiffs;
-Cipher * cipher = new Cipher();
+
 
 void setup() {
  
   Serial.begin(115200);
+  Cipher * cipher = new Cipher();
   
   SPIFFS.begin(true);
   mSpiffs.listDir(SPIFFS, "/", 0);
   
-  char * key = "we8ogr78owt346troga";
-  String ssid = "AndroidAP_5283";
-  String password = "test12345678";
+  char * key = "weogrbasztvszvas";
+  
+  String ssid = "Android-AP";
+  String password = "123456789";
 
   Serial.print("\nSetting cipher key: ");
   Serial.println(key);
