@@ -10,7 +10,7 @@ Here is a little arduino console output picture to visualize project achievement
 
 To use my created class, you only have to include the [Cipher.h](./src/Cipher.h) file in your current Arduino sketch and create an object of it. Now you have to set a secure cipher key to encrypt your data (in this example a simple string). The encryption result can be stored in a string with calling the function encryptString(). Decrypting the encrypted data can be achieved by using the decryptString() function.
 
-``` bash
+```cpp
   #include "Cipher.h"
   
   Cipher * cipher = new Cipher();
@@ -32,7 +32,7 @@ To use my created class, you only have to include the [Cipher.h](./src/Cipher.h)
 
 If you want to save the encrypted string on the internal storage (e.g use case of a secure config file), you have to include the [SPIFFSTest.h](./src/SPIFFSTest.h). Storing and loading the content form Spiffs is now very easly. You just have to call the method writeFile() to save a string in a file and the method getFile() to load the content of a file into an string which will be used to decrypt.
 
-``` bash
+```cpp
   #include "SPIFFSTest.h"
   
   ...
